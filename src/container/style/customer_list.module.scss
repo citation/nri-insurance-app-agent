@@ -1,0 +1,171 @@
+@import '../../variables';
+
+.root {
+  &>.title {
+    padding: .5rem 0 0 .5rem;
+    margin: 0;
+  }
+
+  & .section {
+    @include section;
+  }
+
+  & .form {
+    overflow: hidden;
+
+    & > * {
+      margin: 0;
+      margin-bottom: .5rem;
+    }
+
+    &.close {  
+      animation: close .8s ease 0s 1 forwards;
+    }
+
+    @keyframes close {
+      0% {
+        height: 200px;
+      }
+  
+      100% {
+        height: 0;
+      }
+    }
+  }
+
+  & .search_result {
+    @include pc {
+      min-height: 57vh;
+    }
+
+    @include tab {
+      min-height: 42vh;
+    }
+
+    @include sp {
+      min-height: 30vh;
+    }
+  }
+
+  & .search_result_num {
+    padding: 0;
+    margin: .5rem;
+    font-size: .8rem;
+    width: 100%;
+    text-align: right;
+  }
+
+  & .switch_container {
+    justify-content: flex-start;
+    & .switch {
+      cursor: pointer;
+      box-sizing: border-box;
+      width: 3rem;
+      height: 2rem;
+      padding: 0 .5rem;
+      line-height: 2rem;
+      text-align: right;
+      width: 33%;
+      font-size: .75rem;
+      color: #fcfcfc;
+      font-weight: 700;
+      position: relative;
+      @include background_color;
+
+      &:nth-of-type(n + 4){
+        margin-top: .2rem;
+      }
+
+      &::before {
+        box-sizing: border-box;
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        border: solid 1px #bbbbbb;
+        background: #fcfcfc;
+        position: absolute;
+        top: .5rem;
+        left: .5rem;
+      }
+
+      &:hover::before {
+        border: solid 2px rgb(17, 0, 255);
+      }
+
+      &.selected::after{
+        color: #7d7d7d;
+        box-sizing: border-box;
+        content: "\2714\FE0E";
+        position: absolute;
+        top: .2rem;
+        left: .5rem;
+        line-height: 1.2rem;
+        font-size: 2rem;
+      }
+
+    }
+  }
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .contents {
+    box-sizing: border-box;
+    width: 90vw;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+    position: relative;
+
+    & .title {
+      align-items: center;
+      margin: 0;
+      width: 100%;
+    }
+
+    & .image {
+      height: auto;
+      width: 100%;
+      max-height: 80%;
+    }
+
+    & .actions {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+
+      & .submit {
+        width: 100%;
+        background-color: hsla(200, 40%, 40%, 1);
+
+        &[disabled] {
+          background-color: #dcdcdc;
+        }
+
+        &.hidden {
+          display: none;
+        }
+      }
+
+      & .cancel {
+        color: hsla(205, 80%, 45%, 1);
+        width: 100%;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@include override;

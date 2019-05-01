@@ -1,0 +1,120 @@
+@import '../../variables';
+
+.root {
+  & > .title {
+    padding: .5rem 0 0 .5rem;
+    margin: 0;
+  }
+  & .section {
+    @include section;
+  }
+
+  & .actions {
+    box-sizing: border-box;
+    margin: 1rem 0;
+    position: relative;
+    overflow: visible;
+    padding: 1rem .5rem .5rem .5rem;
+
+    & .action {
+      width: calc(50% - .5rem);
+
+      &:nth-of-type(odd){
+        &:not(:first-of-type) {
+         margin-top: 1rem;
+        }
+
+      }
+
+      @include sp{
+        width: 100% !important;
+        & + .action {
+          margin-top: 1rem;
+        }
+      }
+
+      @include border_color;
+    }
+
+    &::before {
+      left: .5rem;
+      content: attr(data-title);
+      position: absolute;
+      top: -.45rem;
+      background: #fcfcfc;
+      padding: 0 .5rem;
+      font-size: .8rem;
+      opacity: .6;
+    }
+
+    & svg {
+      font-size: 3rem;
+      & + svg {
+        margin-left: 1rem;
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  & .edit_area {
+    margin: 2rem 0 0 0;
+  }
+
+  & .list {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 1rem;
+    position: relative;
+    width: 100%;
+
+    & .item {
+      margin: .3rem;
+
+      @include pc {
+        width: calc(50% - 1rem);
+      }
+
+      @include tab {
+        width: calc(50% - 1rem);
+      }
+
+      @include sp {
+        width: 100%;
+      }
+
+      & .title {
+        color: #3d748f;
+        font-size: 0.7rem;
+        margin: 0;
+      }
+
+      & .value {
+        font-size: 1rem;
+        margin: 0;
+        padding: .1rem .5rem;
+        position: relative;
+        font-weight: 400;
+      }
+      & .opinion {
+        font-size: .8rem;
+        margin: 0;
+        padding: .1rem .5rem;
+        position: relative;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+
+
+@include override;

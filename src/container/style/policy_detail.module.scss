@@ -1,0 +1,128 @@
+@import '../../variables';
+
+
+.root {
+  & .section {
+    @include section;
+
+    & .title {
+      &.insurancer {
+        padding-left: 0;
+      }
+
+      &.item_name {
+        padding-left: 1rem;
+      }
+    }
+
+    & .notification {
+      color: rgb(185, 21, 21);
+    }
+
+    & .list {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      position: relative;
+      width: 100%;
+
+      & .item {
+        margin: .3rem;
+
+        @include pc {
+          width: calc(50% - 1rem);
+        }
+
+        @include tab {
+          width: calc(50% - 1rem);
+        }
+
+        @include sp {
+          width: 100%;
+        }
+
+        & .title {
+          color: #3d748f;
+          font-size: 0.7rem;
+          margin: 0;
+        }
+
+        & .value {
+          font-size: 1rem;
+          margin: 0;
+          padding: .1rem .5rem;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.procedures {
+  border-radius: .5rem;
+
+  & .procedure {
+    cursor: pointer;
+
+    &.badge::after {
+      content: "！";
+      position: absolute;
+      font-size: .6rem;
+      top: .5rem;
+      right: .5rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      font-weight: 900;
+      background: #ff0000b3;
+      animation: scale .6s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      color: #fcfcfc;
+      text-align: center;
+  
+      @include pc {
+        margin-left: 0rem;
+      }
+  
+      @include tab {
+        margin-left: 0rem;
+      }
+  
+      @include sp {
+        margin-left: 0rem;
+      }
+
+      @keyframes scale {
+        0% {
+          transform: scale(1);
+        }
+    
+        100% {
+          transform: scale(1.2);
+        }
+      }
+    }  
+    
+    
+
+    & .image {
+      width: 80%
+    }
+
+    & .label {
+      & span {
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      & p {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}

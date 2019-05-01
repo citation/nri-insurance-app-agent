@@ -1,0 +1,43 @@
+@import '../../variables';
+
+.root {
+  & .section {
+    @include section;
+
+    &:first-of-type{
+      @include pc {
+        min-height: 70vh;
+      }
+
+      @include tab {
+        min-height: 70vh;
+      }
+
+      @include sp {
+        min-height: 60vh;
+      }
+    }
+
+    & > div {
+      @include pc {
+        width: calc(50% - 1rem);
+      }
+
+      @include tab {
+        width: calc(50% - 1rem);
+      }
+
+      @include sp {
+        width: 100%;
+      }
+
+      &.card_container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+  }
+}

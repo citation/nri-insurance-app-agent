@@ -1,0 +1,70 @@
+@import '../../variables';
+
+
+.root {
+  & .navigations {
+    background: hsla(213, 90%, 15%, 1);
+    display: grid;
+    padding: 1rem;
+
+    @include pc {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include tab {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include sp {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    grid-gap: 10px;
+
+    & .navigation {
+      & .title {
+        color: #ffffff;
+        font-size: 0.8rem;
+        margin: 0;
+        opacity: .7;
+        line-height: 1.2rem;
+      }
+
+      & .link {
+        color: #ffffff;
+        font-size: 0.6rem;
+        margin: 0;
+        opacity: .7;
+        line-height: 1rem;
+      }
+    }
+  }
+
+  & .secondary {
+    background: hsla(213, 100%, 10%, 1);
+    box-sizing: border-box;
+    padding: .5rem 0 1.5rem 0;
+    width: 100%;
+
+    & .socials {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      padding: .5rem;
+
+      & .icon {
+        margin: .3rem
+      }
+    }
+
+    & .copyright {
+      color: #ffffff;
+      font-size: 0.6rem;
+      line-height: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}

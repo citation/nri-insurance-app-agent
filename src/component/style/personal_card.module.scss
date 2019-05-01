@@ -1,0 +1,183 @@
+@import '../../variables';
+
+
+.root {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  transition: box-shadow .5s;
+
+  @include pc {
+    width: calc((100% - 1rem) / 2);
+    margin-top: 1rem;
+  }
+
+  @include tab {
+    width: calc((100% - 1rem) / 2);
+    margin-top: 1rem;
+
+    &+&:nth-of-type(even) {
+      @include pc {
+        margin-left: 1rem;
+      }
+  
+      @include tab {
+        margin-left: .5rem;
+      }
+  
+      @include sp {
+        margin-left: 0rem;
+      }
+    }
+  }
+
+  @include sp {
+    width: 100%;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &+&:nth-of-type(even) {
+      @include pc {
+        margin-left: 1rem;
+      }
+  
+      @include tab {
+        margin-left: 1rem;
+      }
+  
+      @include sp {
+        margin-left: 0rem;
+      }
+    }
+  }
+
+
+
+  &.selected {
+    transition: box-shadow 1s;
+    box-shadow: 0px 10px 40px -10px;
+    border: 1px solid rgba(0, 0, 255, 1);
+  }
+
+  @include border_color;
+
+  &.badge::after {
+    content: "！";
+    position: absolute;
+    font-size: .6rem;
+    top: .5rem;
+    right: .5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    font-weight: 900;
+    background: #ff0000b3;
+    animation: scale .6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    color: #fcfcfc;
+    text-align: center;
+
+
+    @include pc {
+      margin-left: 0rem;
+    }
+
+    @include tab {
+      margin-left: 0rem;
+    }
+
+    @include sp {
+      margin-left: 0rem;
+    }
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+  & .details {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 100%;
+    padding: 1rem;
+    padding-bottom: 1rem !important; // ToDo: have to use theme
+
+    & .title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    & .sub_title {
+      font-size: .8rem;
+      overflow: hidden;
+      align-items: center;
+    }
+
+    & .description {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  & .policy_image {
+    width: 3rem;
+    height: 3rem;
+
+    &[color] {
+      box-sizing: border-box;
+    }
+    
+    &[color="red"] {
+      border-bottom: #cf4d35 5px solid;
+    }
+  
+    &[color="purple"] {
+      border-bottom: #ca85ca 5px solid;
+    }
+  
+    &[color="pink"] {
+      border: #e54e7e 5px solid;
+    }
+  
+    &[color="green"] {
+      border-bottom: #61c436 5px solid;
+    }
+  
+    &[color="orange"] {
+      border-bottom: #f4b23f 5px solid;
+    }
+  
+    &[color="emerald"] {
+      border-bottom: #46c49c 5px solid;
+    }
+  
+    &[color="blue"] {
+      border-bottom: #607ec7 5px solid;
+    }
+  }
+
+  & .information {
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+
+@include override;

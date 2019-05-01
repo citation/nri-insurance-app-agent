@@ -1,0 +1,129 @@
+@import '../../variables';
+
+.root {
+  & > .title {
+    padding: .5rem 0 0 .5rem;
+    margin: 0;
+  }
+  & .section {
+    @include section;
+  }
+
+  & .action_slot {
+    margin: 1rem 0 0 0;
+  }
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .contents {
+    box-sizing: border-box;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+    min-height: 30vh;
+    height: auto;
+    max-height: 85vh;
+
+    @include pc {
+      width: 40vw;
+    }
+
+    @include tab {
+      width: 50vw;
+    }
+
+    @include sp {
+      width: 90vw;
+    }
+
+
+    & .actions {
+      position: relative;
+      height: auto;
+      bottom: 0;
+      width: 100%;
+
+      & .submit {
+        width: 100%;
+        background-color: hsla(200, 40%, 40%, 1);
+
+        &[disabled] {
+          background-color: #dcdcdc;
+        }
+
+        &.hidden {
+          display: none;
+        }
+      }
+
+      & .cancel {
+        color: hsla(205, 80%, 45%, 1);
+        width: 100%;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.menu_container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1rem;
+
+  & .menu {
+    cursor: pointer;
+    padding: .5rem;
+    box-sizing: border-box;
+
+    @include pc {
+      width: 50%;
+      
+      &:hover {
+        background: #f0f8ff;
+      }
+    }
+
+    @include tab {
+      width: 50%;
+    }
+
+    @include sp {
+      width: 50%;
+
+      &:nth-of-type(odd):last-of-type {
+        width: 100%;
+      }
+    }
+
+    & img {
+      width: 100%;
+      height: auto;
+    }
+
+    & .title {
+      color: #323344;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin: .5rem 0;
+      text-align: center;
+    }
+  }
+}
+
+@include override;

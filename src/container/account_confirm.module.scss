@@ -1,0 +1,49 @@
+@import '../variables';
+
+
+.root {
+  & .section {
+    @include section;
+
+    & .list {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      position: relative;
+      width: 100%;
+
+      & .item {
+        margin: .3rem;
+
+        @include pc {
+          width: calc(50% - 1rem);
+        }
+
+        @include tab {
+          width: calc(50% - 1rem);
+        }
+
+        @include sp {
+          width: 100%;
+        }
+
+        & .title {
+          color: #3d748f;
+          font-size: 0.7rem;
+          margin: 0;
+        }
+
+        & .value {
+          font-size: 1rem;
+          margin: 0;
+          padding: .1rem .5rem;
+          position: relative;
+        }
+      }
+    }
+  }
+}

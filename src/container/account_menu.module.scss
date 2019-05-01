@@ -1,0 +1,40 @@
+@import '../variables';
+
+
+.root {
+  min-height: calc(100vh - 250px);
+  & .section {
+    @include section;
+
+    &.insurancer {
+      font-size: 1.2rem;
+    }
+
+    &.item_name {
+      font-size: 1rem;
+    }
+  }
+}
+
+.procedures {
+  border-radius: .5rem;
+
+  & .procedure {
+    cursor: pointer;
+
+    & .image {
+      width: 80%
+    }
+
+    & .label {
+      & span {
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      & p {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}

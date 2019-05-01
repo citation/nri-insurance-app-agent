@@ -1,0 +1,141 @@
+@import '../../variables';
+
+
+.root {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  position: relative;
+  transition: box-shadow .5s;
+
+  @include pc {
+    width: calc((100% - 1rem) / 2);
+  }
+
+  @include tab {
+    width: calc((100% - 1rem) / 2);
+  }
+
+  @include sp {
+    width: 100%;
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &.selected {
+    transition: box-shadow 1s;
+    box-shadow: 0px 10px 40px -10px;
+    border: 1px solid rgba(0, 0, 255, 1);
+  }
+
+  @include border_color;
+
+  &.badge::after {
+    content: "！";
+    position: absolute;
+    font-size: .6rem;
+    top: .5rem;
+    right: .5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    font-weight: 900;
+    background: #ff0000b3;
+    animation: scale .6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    color: #fcfcfc;
+    text-align: center;
+
+
+    @include pc {
+      margin-left: 0rem;
+    }
+
+    @include tab {
+      margin-left: 0rem;
+    }
+
+    @include sp {
+      margin-left: 0rem;
+    }
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+  & .image {
+    background-size: contain;
+    height: auto;
+    width: 30%;
+    min-width: 30%;
+  }
+
+  & .details {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    min-width: 70%;
+    padding: 1rem;
+    padding-bottom: 1rem !important; // ToDo: have to use theme
+
+    & .title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    & .sub_title {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: .8rem;
+      overflow: hidden;
+      align-items: center;
+    }
+
+    & .description {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  & .information {
+    cursor: pointer;
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+
+  &+&:nth-of-type(odd) {
+    @include pc {
+      margin-left: .5rem;
+    }
+
+    @include tab {
+      margin-left: .5rem;
+    }
+
+    @include sp {
+      margin-left: 0rem;
+    }
+  }
+}

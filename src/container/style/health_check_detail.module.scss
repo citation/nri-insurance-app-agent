@@ -1,0 +1,201 @@
+@import '../../variables';
+
+
+.root {
+  & .section {
+    @include section;
+
+    & .title {
+      &.insurancer {
+        padding-left: 0;
+      }
+
+      &.item_name {
+        padding-left: 1rem;
+      }
+    }
+
+    & .notification {
+      color: rgb(185, 21, 21);
+    }
+
+    & .list {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      width: 100%;
+
+      & .item {
+        margin: .3rem;
+
+        @include pc {
+          width: calc(50% - 1rem);
+        }
+
+        @include tab {
+          width: calc(50% - 1rem);
+        }
+
+        @include sp {
+          width: 100%;
+        }
+
+        & .title {
+          color: #3d748f;
+          font-size: 0.7rem;
+          margin: 0;
+        }
+
+        & .value {
+          font-size: 1rem;
+          margin: 0;
+          padding: .1rem .5rem;
+          position: relative;
+          font-weight: 700;
+
+          &.with_standard::after {
+            content: "（標準値："attr(data-standard)"）";
+            font-size: 0.8rem;
+            font-weight: 200;
+          }
+        }
+        & .opinion {
+          font-size: .8rem;
+          margin: 0;
+          padding: .1rem .5rem;
+          position: relative;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.procedures {
+  border-radius: .5rem;
+
+  & .procedure {
+    cursor: pointer;
+
+    &.badge::after {
+      content: "！";
+      position: absolute;
+      top: .5rem;
+      right: .5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      font-weight: 900;
+      background: #ff0000b3;
+      animation: scale .6s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      color: #fcfcfc;
+      text-align: center;
+
+      @include pc {
+        margin-left: 0rem;
+      }
+
+      @include tab {
+        margin-left: 0rem;
+      }
+
+      @include sp {
+        margin-left: 0rem;
+      }
+
+      @keyframes scale {
+        0% {
+          transform: scale(1);
+        }
+
+        100% {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+
+
+    & .image {
+      width: 80%
+    }
+
+    & .label {
+      & span {
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      & p {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .contents {
+    box-sizing: border-box;
+    width: 90vw;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+
+    & .title {
+      align-items: center;
+      margin: 0;
+      width: 100%;
+    }
+
+    & .image {
+      height: auto;
+      width: 100%;
+    }
+
+    & .actions {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+
+      & .submit {
+        width: 100%;
+        background-color: hsla(200, 40%, 40%, 1);
+
+        &[disabled] {
+          background-color: #dcdcdc;
+        }
+
+        &.hidden {
+          display: none;
+        }
+      }
+
+      & .cancel {
+        color: hsla(205, 80%, 45%, 1);
+        width: 100%;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}

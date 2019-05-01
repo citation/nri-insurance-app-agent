@@ -1,0 +1,228 @@
+@import '../../variables';
+
+.root {
+  & .section {
+    @include section;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    &.search_result {
+      @include pc{
+        min-height: 50vh;
+      }
+      @include tab{
+        min-height: 50vh;
+      }
+      @include sp{
+        min-height: 40vh;
+      }
+    }
+
+    & .form {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      & .search_text {
+        width: 85%;
+      }
+
+      & .search_button {
+        width: 15%;
+      }
+    }
+
+    & .card_container {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;      
+      list-style: none;
+      margin-bottom: 0;
+      padding-left: 0;
+      width: 100%;
+
+      & .card {
+        background: lightgray;
+        border-radius: 2%;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+        background-size: cover;
+        margin-bottom: 1rem;
+        min-height: 150px;
+        overflow: hidden;
+        position: relative;
+        transition: box-shadow .5s;
+
+        @include pc{
+          width: calc(50% - .5rem);
+        }
+        @include tab{
+          width: calc(50% - .5rem);
+        }
+        @include sp{
+          width: 100%;
+        }
+
+        &.selected {
+          transition: box-shadow 1s;
+          box-shadow: 0px 10px 40px -10px;
+          border: 1px solid rgba(0, 0, 255, 1);
+        }
+
+        & .image {
+          height: auto;
+          position: absolute;
+          width: 100%;
+        }
+
+        & .description {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 30%;
+          padding: 0 1rem;
+          box-sizing: border-box;
+          border: none;
+          opacity: 0.7;
+          background: white;
+          border-radius: 0 0 5% 5%;
+          display: flex;
+          flex-direction: column;
+
+          bottom: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: .5rem;
+
+          &>* {
+            font-size: .8rem;
+            margin: 0;
+            font-weight: 700;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+    & .action_slot {
+      margin: 1rem 0 0 0;
+      width: 100%;
+    }
+  }
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .contents {
+    box-sizing: border-box;
+    height: 85vh;
+    width: 90vw;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+    position: relative;
+
+    & .title {
+      align-items: center;
+      margin: 0;
+      width: 100%;
+    }
+
+    & .image {
+      height: auto;
+      width: 100%;
+      max-height: 80%;
+    }
+
+    & .actions {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+
+      & .submit {
+        width: 100%;
+        background-color: hsla(200, 40%, 40%, 1);
+
+        &[disabled] {
+          background-color: #dcdcdc;
+        }
+
+        &.hidden {
+          display: none;
+        }
+      }
+
+      & .cancel {
+        color: hsla(205, 80%, 45%, 1);
+        width: 100%;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  overflow: scroll;
+
+  & .item {
+    margin: .3rem;
+    width: 100%;
+    // @include pc {
+    //   width: calc(50% - 1rem);
+    // }
+
+    // @include tab {
+    //   width: calc(50% - 1rem);
+    // }
+
+    // @include sp {
+    //   width: 100%;
+    // }
+
+    & .title {
+      color: #3d748f;
+      font-size: 0.7rem;
+      margin: 0;
+    }
+
+    & .value {
+      font-size: 1rem;
+      margin: 0;
+      padding: .1rem .5rem;
+      position: relative;
+      font-weight: 700;
+    }
+  }
+}
+
+@include override;
